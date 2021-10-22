@@ -1,0 +1,26 @@
+{
+  "name": "parallax.css",
+  "version": "1.0.0",
+  "description": "Pure css library for the parallax effect",
+  "main": "parallax.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matyanson/parallax.css.git"
+  },
+  "keywords": [
+    "parallax",
+    "css",
+    "pure",
+    "lightweight",
+    "simple"
+  ],
+  "author": "Matyanson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matyanson/parallax.css/issues"
+  },
+  "homepage": "https://github.com/Matyanson/parallax.css#readme"
+}
