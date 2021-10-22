@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="parallax.css" rel="stylesheet">
+    <title>My Parallax library</title>
+</head>
+<body>
+    <div class="content">
+      <div class="title">This is the foreground</div>
+    </div>
+    
+    <div class="background" prx>
+      <div class="title">This is the background</div>
+    </div>
+
+    <div class="content">
+      <div class="title">This is the foreground</div>
+    </div>
+</body>
+<style>
+  body {
+    margin: 0;
+    --p-depth: 2;
+  }
+  /* content styles*/
+  .content {
+    background: #0000ff40;
+    height: 100vh;
+  }
+  .background {
+    --p-scale: 1.5;
+    background: #ff000040;
+    height: 50vh;
+  }
+  .title {
+    font-size: 2rem;
+    text-align: center;
+    padding: 10px;
+  }
+  .wrap {
+    overflow: hidden;
+  }
+</style>
+</html>
