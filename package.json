@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/Matyanson/parallax.css/issues"
   },
-  "homepage": "https://github.com/Matyanson/parallax.css#readme"
+  "homepage": "https://github.com/Matyanson/parallax.css#readme",
+  "files": [
+    "parallax.css"
+  ]
 }
