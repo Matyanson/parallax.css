@@ -72,6 +72,8 @@ body [prx],
     translateZ(calc(var(--p-depth, 1) * -1px))
     scale(var(--p-scale-complete))
     var(--p-transform);
+    position: relative;
+    z-index: -1;
 }
 [prx="0"] {
     transform: unset;
