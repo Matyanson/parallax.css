@@ -38,6 +38,37 @@ body,
 .prx_group {
     transform-style: preserve-3d;
 }
+.prx_fit {
+    display: block;
+    object-fit: cover;
+    --p-scale-to-fit-above1: calc(
+        (100*var(--p-scale-adjust) + var(--p-size) - 100) /
+        (var(--p-scale-adjust) * var(--p-size))
+    );
+    /*  a: scale-adjust; b: size(vh)
+        (a+b-1) / ab    */
+    --p-scale-to-fit-below1: calc(
+        -1* 
+        (100*var(--p-scale-adjust) - var(--p-size) - 100) /
+        (var(--p-scale-adjust) * var(--p-size))
+    );
+    /*  a: scale-adjust; b: size(vh)
+        -(a-b-1) / (ab)    */
+    --p-scale-to-fit: max(var(--p-scale-to-fit-above1), var(--p-scale-to-fit-below1));
+}
+body .prx_fit,
+.prx_container_y .prx_fit {
+    height: calc(var(--p-size, unset) * 1vh);
+    margin-left: auto;
+    margin-right: auto;
+    min-width: calc(100% / var(--p-scale-to-fit, 1));
+}
+.prx_container_x .prx_fit {
+    width: calc(var(--p-size, unset) * 1vw);
+    margin-top: auto;
+    margin-bottom: auto;
+    min-height: calc(100% / var(--p-scale-to-fit, 1));
+}
 body [prx],
 .prx_container_y [prx] {
     transform-origin: 
