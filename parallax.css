@@ -10,6 +10,7 @@ html {
     --p-align: 0;
     --p-depth: 1;
     --p-scale: 1;
+    --p-transform: ;
 }
 /*---parallax container---*/
 body,
@@ -53,7 +54,7 @@ body [prx],
 [prx] {
     --p-scale-adjust: calc(1 + var(--p-depth, 1) / 2);
     /*1 + (translateZ * -1) / perspective*/
-    --p-scale-complete: calc(var(--p-scale-adjust) * var(--p-scale, 1));
+    --p-scale-complete: calc(var(--p-scale-adjust) * var(--p-scale-to-fit, 1) * var(--p-scale, 1));
     --origin-shift: calc(
         100% *
         var(--p-scale-adjust)*(var(--p-scale) - 1) /
@@ -69,7 +70,8 @@ body [prx],
         z + ((50-z)/50) * y    */
     transform:
     translateZ(calc(var(--p-depth, 1) * -1px))
-    scale(calc(var(--p-scale-adjust) * var(--p-scale, 1)));
+    scale(var(--p-scale-complete))
+    var(--p-transform);
 }
 [prx="0"] {
     transform: unset;
