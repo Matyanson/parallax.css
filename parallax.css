@@ -7,7 +7,7 @@ html {
 }
 /*---global vars---*/
 :root {
-    --p-align: 0;
+    --p-align: 50;
     --p-depth: 1;
     --p-scale: 1;
     --p-transform: ;
@@ -19,11 +19,9 @@ body,
 .prx_container_y {
     perspective: 2px;
 }
-/*  hack - perspective-origin
-    97.8% behaves as 100%   */
 body,
 .prx_container_y {
-    perspective-origin: calc(var(--p-align, 0) * 0.978%) 0%;
+    perspective-origin: calc(var(--p-align, 0) * 1%) 0%;
     overflow-x: hidden;
     overflow-y: auto;
     height: 100vh;
@@ -44,11 +42,14 @@ body [prx],
 .prx_container_y [prx] {
     transform-origin: 
     var(--p-origin)
-    0%;
+    calc( clamp(-0.01, var(--p-depth), 0) * -10000%);
+    /*  if depth is negative transform-origin-y is 100%
+        clamp is not available for 3.27% of global users
+    */
 }
 .prx_container_x [prx] {
     transform-origin:
-    0% 
+    calc( clamp(-0.01, var(--p-depth), 0) * -10000%)
     var(--p-origin);
 }
 [prx] {
