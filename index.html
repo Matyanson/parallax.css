@@ -4,68 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="parallax.css" rel="stylesheet">
-    <title>My Parallax library</title>
+    <title>Css parallax</title>
 </head>
 <body>
-    <div class="content">
-      <div class="title">This is the foreground</div>
-    </div>
-    
-    <div class="section1 prx_fit" prx>
-    </div>
-
-    <div class="content">
-      <div class="title">This is the foreground</div>
-    </div>
-
-    <img class="section2 prx_fit" prx alt="bg" src="https://simpleparallax.b-cdn.net/images/diaporama/landscape.jpg">
-
-    <div class="content">
-      <div class="title">This is the foreground</div>
-    </div>
-
-    <img class="section3 prx_fit" prx alt="bg" src="https://simpleparallax.b-cdn.net/images/diaporama/landscape.jpg">
-
-    <div class="content">
-      <div class="title">This is the foreground</div>
-    </div>
+    <p style="font-family: 'Courier New', monospace; font-size: 3rem; position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);" >Under construction</p>
 </body>
-<style>
-  body {
-    margin: 0;
-    --p-depth: 2;
-  }
-  /* content styles*/
-  .content {
-    background: white;
-    height: 100vh;
-    border: 1px solid black;
-  }
-  .section1 {
-    --p-depth: 0.9;
-    --p-size: 40;
-    background-image: url(https://simpleparallax.b-cdn.net/images/diaporama/landscape.jpg);
-    background-size: cover;
-    background-position: center;
-  }
-  .section2 {
-    --p-depth: 2;
-    --p-size: 50;
-  }
-  .section3 {
-    display: block;
-    --p-depth: -0.3;
-    --p-size: 30;
-    z-index: -2;
-  }
-  .title {
-    font-size: 2rem;
-    text-align: center;
-    padding: 10px;
-  }
-  .wrap {
-    overflow: hidden;
-  }
-</style>
 </html>
