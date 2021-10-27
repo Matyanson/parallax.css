@@ -19,15 +19,17 @@ body,
 .prx_container_y {
     perspective: 2px;
 }
+/*  account for scrollbar width: 17px
+    https://codepen.io/sambible/post/browser-scrollbar-widths    */
 body,
 .prx_container_y {
-    perspective-origin: calc(var(--p-align, 0) * 1%) 0%;
+    perspective-origin: calc((100% - 17px) * var(--p-align) / 100) 0%;    
     overflow-x: hidden;
     overflow-y: auto;
     height: 100vh;
 }
 .prx_container_x {
-    perspective-origin: 0% calc(var(--p-align, 0) * 1%);
+    perspective-origin: 0% calc((100% - 17px) * var(--p-align) / 100);
     overflow-x: auto;
     overflow-y: hidden;
     width: 100vw;
