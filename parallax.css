@@ -9,6 +9,8 @@ html {
 :root {
     --p-align: 50;
     --p-perspective: 5;
+    --p-speed: 0.5;
+    --p-depth: calc(var(--p-perspective) * (1 / var(--p-speed) - 1));
     --p-scale: 1;
     --p-transform: ;
 }
@@ -109,6 +111,7 @@ body [prx],
     translateZ(calc(var(--p-depth, 1) * -1px))
     scale(var(--p-scale-complete))
     var(--p-transform);
+    --p-depth: calc(var(--p-perspective) * (1 / (var(--p-speed, 0.5)) - 1));
     position: relative;
     z-index: -1;
 }
