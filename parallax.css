@@ -137,16 +137,16 @@ body [prx],
     --p-depth: 6;
 }
 [prx="7"] {
-    --p-depth: 6;
+    --p-depth: 7;
 }
 [prx="8"] {
-    --p-depth: 6;
+    --p-depth: 8;
 }
 [prx="9"] {
-    --p-depth: 6;
+    --p-depth: 9;
 }
 [prx="10"] {
-    --p-depth: 6;
+    --p-depth: 10;
 }
 
 [prx="-1"] {
