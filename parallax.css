@@ -8,7 +8,7 @@ html {
 /*---global vars---*/
 :root {
     --p-align: 50;
-    --p-depth: 1;
+    --p-perspective: 5;
     --p-scale: 1;
     --p-transform: ;
 }
@@ -17,7 +17,7 @@ body,
 .prx_container,
 .prx_container_x,
 .prx_container_y {
-    perspective: 2px;
+    perspective: calc(var(--p-perspective, 10) * 1px);
     --p-scrollbar-width: 17px;
 }
 /*  account for scrollbar width: 17px
@@ -89,7 +89,7 @@ body [prx],
     var(--p-origin);
 }
 [prx] {
-    --p-scale-adjust: calc(1 + var(--p-depth, 1) / 2);
+    --p-scale-adjust: calc(1 + var(--p-depth, 1) / var(--p-perspective));
     /*1 + (translateZ * -1) / perspective*/
     --p-scale-complete: calc(var(--p-scale-adjust) * var(--p-scale-to-fit, 1) * var(--p-scale, 1));
     --origin-shift: calc(
