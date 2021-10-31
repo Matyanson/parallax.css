@@ -62,14 +62,14 @@ body,
 }
 body .prx_fit,
 .prx_container_y .prx_fit {
-    height: calc(var(--p-size, unset) * 1vh);
+    height: calc(var(--p-size, unset) * 1%);
     /* center even if oversized (not using translate) */
     --p-center-shift: calc((1% - 1% / var(--p-scale-to-fit)) * var(--p-align));
     left: var(--p-center-shift);           /*make sure it is relative*/
     width: calc(100% / var(--p-scale-to-fit, 1) + var(--p-scrollbar-width-scaled));
 }
 .prx_container_x .prx_fit {
-    width: calc(var(--p-size, unset) * 1vw);
+    width: calc(var(--p-size, unset) * 1%);
     --p-center-shift: calc((1% - 1% / var(--p-scale-to-fit)) * var(--p-align));
     left: var(--p-center-shift);
     height: calc(100% / var(--p-scale-to-fit, 1) + var(--p-scrollbar-width-scaled));
