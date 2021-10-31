@@ -44,8 +44,12 @@ body,
     transform-style: preserve-3d;
 }
 .prx_fit {
+    position: relative;
     display: block;
     object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
     --p-scale-to-fit-above1: calc(
         (100*var(--p-scale-adjust) + var(--p-size) - 100) /
         (var(--p-scale-adjust) * var(--p-size))
@@ -112,8 +116,6 @@ body [prx],
     scale(var(--p-scale-complete))
     var(--p-transform);
     --p-depth: calc(var(--p-perspective) * (1 / (var(--p-speed, 0.5)) - 1));
-    position: relative;
-    z-index: -1;
 }
 [prx="0"] {
     transform: unset;
