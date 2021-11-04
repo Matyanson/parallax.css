@@ -1,6 +1,6 @@
 {
   "name": "parallax.css",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Pure css library for the parallax effect",
   "main": "parallax.css",
   "scripts": {
