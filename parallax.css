@@ -118,7 +118,7 @@ body [prx],
     --p-depth: calc(var(--p-perspective) * (1 / (var(--p-speed, 0.5)) - 1));
 }
 [prx="0"] {
-    transform: unset;
+    --p-depth: 0;
 }
 [prx="1"] {
     --p-depth: 1;
