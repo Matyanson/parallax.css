@@ -26,13 +26,13 @@ body,
     https://codepen.io/sambible/post/browser-scrollbar-widths    */
 body,
 .prx_container_y {
-    perspective-origin: calc(100% * var(--p-align) / 100) 0%;    
+    perspective-origin: calc(100% * var(--p-align) / 100) 50%;    
     overflow-x: hidden;
     overflow-y: auto;
     height: 100vh;
 }
 .prx_container_x {
-    perspective-origin: 0% calc(100% * var(--p-align) / 100);
+    perspective-origin: 50% calc(100% * var(--p-align) / 100);
     overflow-x: auto;
     overflow-y: hidden;
     width: 100vw;
@@ -65,6 +65,7 @@ body,
         -(a-b-1) / (ab)    */
     --p-scale-to-fit: max(var(--p-scale-to-fit-above1), var(--p-scale-to-fit-below1));
     --p-scrollbar-width-scaled: var(--p-scrollbar-width) * var(--p-align) / 100;
+    /*  max() is not available for 3.27% of global users    */
 }
 body .prx_fit,
 .prx_container_y .prx_fit {
@@ -84,14 +85,11 @@ body [prx],
 .prx_container_y [prx] {
     transform-origin: 
     var(--p-origin)
-    calc( clamp(-0.01, var(--p-depth), 0) * -10000%);
-    /*  if depth is negative transform-origin-y is 100%
-        clamp is not available for 3.27% of global users
-    */
+    50%;
 }
 .prx_container_x [prx] {
     transform-origin:
-    calc( clamp(-0.01, var(--p-depth), 0) * -10000%)
+    50%
     var(--p-origin);
 }
 [prx] {
