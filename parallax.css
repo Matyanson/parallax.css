@@ -42,6 +42,7 @@ body,
 /*---parallax items---*/
 .prx_group {
     transform-style: preserve-3d;
+    height: calc(var(--p-group-size, 100) * 1%);
 }
 .prx_fit {
     position: relative;
@@ -50,16 +51,18 @@ body,
     background-size: cover;
     background-position: center;
     z-index: -1;
+    /*  size relative to container when in group    */
+    --p-size-calc: calc(var(--p-size, 100) * (var(--p-group-size, 100) / 100));
     --p-scale-to-fit-above1: calc(
-        (100*var(--p-scale-adjust) + var(--p-size) - 100) /
-        (var(--p-scale-adjust) * var(--p-size))
+        (100*var(--p-scale-adjust) + var(--p-size-calc) - 100) /
+        (var(--p-scale-adjust) * var(--p-size-calc))
     );
     /*  a: scale-adjust; b: size(vh)
         (a+b-1) / ab    */
     --p-scale-to-fit-below1: calc(
         -1* 
-        (100*var(--p-scale-adjust) - var(--p-size) - 100) /
-        (var(--p-scale-adjust) * var(--p-size))
+        (100*var(--p-scale-adjust) - var(--p-size-calc) - 100) /
+        (var(--p-scale-adjust) * var(--p-size-calc))
     );
     /*  a: scale-adjust; b: size(vh)
         -(a-b-1) / (ab)    */
