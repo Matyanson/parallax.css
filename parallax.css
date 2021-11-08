@@ -29,20 +29,21 @@ body,
     perspective-origin: calc(100% * var(--p-align) / 100) 50%;    
     overflow-x: hidden;
     overflow-y: auto;
-    height: 100vh;
+    --p-container-size: 100vh;
+    height: var(--p-container-size);
 }
 .prx_container_x {
     perspective-origin: 50% calc(100% * var(--p-align) / 100);
     overflow-x: auto;
     overflow-y: hidden;
-    width: 100vw;
+    --p-container-size: 100vw;
+    width: var(--p-container-size);
     height: unset;
 }
 
 /*---parallax items---*/
 .prx_group {
     transform-style: preserve-3d;
-    height: calc(var(--p-group-size, 100) * 1%);
 }
 .prx_fit {
     position: relative;
@@ -51,18 +52,18 @@ body,
     background-size: cover;
     background-position: center;
     z-index: -1;
-    /*  size relative to container when in group    */
-    --p-size-calc: calc(var(--p-size, 100) * (var(--p-group-size, 100) / 100));
+    /*  size relative to container  */
+    --p-size-calc: calc(var(--p-size, 100) / 100 * var(--p-container-size));
     --p-scale-to-fit-above1: calc(
-        (100*var(--p-scale-adjust) + var(--p-size-calc) - 100) /
-        (var(--p-scale-adjust) * var(--p-size-calc))
+        (100*var(--p-scale-adjust) + var(--p-size) - 100) /
+        (var(--p-scale-adjust) * var(--p-size))
     );
     /*  a: scale-adjust; b: size(vh)
         (a+b-1) / ab    */
     --p-scale-to-fit-below1: calc(
         -1* 
-        (100*var(--p-scale-adjust) - var(--p-size-calc) - 100) /
-        (var(--p-scale-adjust) * var(--p-size-calc))
+        (100*var(--p-scale-adjust) - var(--p-size) - 100) /
+        (var(--p-scale-adjust) * var(--p-size))
     );
     /*  a: scale-adjust; b: size(vh)
         -(a-b-1) / (ab)    */
@@ -72,14 +73,14 @@ body,
 }
 body .prx_fit,
 .prx_container_y .prx_fit {
-    height: calc(var(--p-size, unset) * 1%);
+    height: var(--p-size-calc, 100vh);
     /* center even if oversized (not using translate) */
     --p-center-shift: calc((1% - 1% / var(--p-scale-to-fit)) * var(--p-align));
     left: var(--p-center-shift);           /*make sure it is relative*/
     width: calc(100% / var(--p-scale-to-fit, 1) + var(--p-scrollbar-width-scaled));
 }
 .prx_container_x .prx_fit {
-    width: calc(var(--p-size, unset) * 1%);
+    width: var(--p-size-calc, 100vw);
     --p-center-shift: calc((1% - 1% / var(--p-scale-to-fit)) * var(--p-align));
     left: var(--p-center-shift);
     height: calc(100% / var(--p-scale-to-fit, 1) + var(--p-scrollbar-width-scaled));
