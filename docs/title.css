@@ -1,0 +1,95 @@
+@keyframes drop-down {
+    0% {
+        top: -30%;
+    }
+}
+.title{
+    position: absolute;
+    top:45%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 1000px;
+    font-family: 'Consolas', Helvetica, Arial, monospace;
+    font-size: 8rem;
+    font-weight: 600;
+    /* color: #dfdfdf; */
+    color: #c2c9ed;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    animation: drop-down 1.5s cubic-bezier(0.32, 0.04, 0.29, 1.17);
+}
+.title .letter{
+    position: relative;
+    margin: 0 5px;
+}
+#p{
+    --p-transform: translate(30%, 0%);
+    --p-scale: 1.2;
+}
+#a1{
+    --p-transform: translate(-95%, 0%);
+    --p-scale: 0.9;
+}
+#r{
+    --p-transform: translate(40%, 0%);
+    --p-scale: 1.2;
+}
+#a2{
+    --p-transform: translate(-85%, 0%);
+    --p-scale: 0.8;
+}
+#l1{
+    --p-transform: translate(10%, 0%);
+    --p-scale: 1.2;
+}
+#l2{
+    --p-transform: translate(0%, 0%);
+    --p-scale: 1;
+}
+#a3{
+    --p-transform: translate(45%, 0%);
+    --p-scale: 0.8;
+}
+#x{
+    --p-transform: translate(37%, 0%);
+    --p-scale: 1;
+}
+#c{
+    --p-transform: translate(-15%, 60%);
+    --p-scale: 1.2;
+    font-weight: 300;
+}
+#s1{
+    --p-transform: translate(0%, 60%);
+    --p-scale: 1.1;
+    font-weight: 300;
+}
+#s2{
+    --p-transform: translate(90%, 60%);
+    --p-scale: 1;
+    font-weight: 300;
+}
+.title .letter::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 75%;
+    transform: translateX(-50%);
+    background: #c2c9ed;
+    width: 1.5px;
+    height: 1100%;
+}
+#l1::after, #l2::after {
+    left: 28%;
+}
+#x::after {
+    left: 15%;
+}
+
+@media (max-width: 1085px) {
+    .title{
+        font-size: 11vw;
+    }
+}

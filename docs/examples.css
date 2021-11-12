@@ -1,0 +1,61 @@
+.container_small {
+    display: flex;
+    background: #333;
+    margin: 10px;
+    --p-align: 0;
+
+    background: 
+}
+.container_small > div {
+    flex: none; /*do not stretch of shrink items*/
+}
+.container_small.prx_container_y {
+    --p-container-size: 250px;
+    width: 150px;
+    flex-flow: column;
+}
+.container_small.prx_container_x {
+    --p-container-size: 250px;
+    height: 150px;
+    flex-flow: row;
+}
+.container_small > div[prx]{
+    background: #274cc5;
+    border-color: #1f48a0;
+}
+.cube{
+    width: 50px;
+    height: 50px;
+    background: #c52727;
+    border: 5px solid #a01f1f;
+}
+.rectangle_x, .rectangle_y {
+    width: 100px;
+    height: 50px;
+    background: #c52727;
+    border: 5px solid #a01f1f;
+}
+.rectangle_y {
+    width: 50px;
+    height: 100px;
+}
+.rectangle_y, .rectangle_x, .cube {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    color: #dfdfdf;
+}
+.space {
+    height: 200px;
+    width: 200px;
+}
+
+/*bg_align*/
+
+#bg_align {
+    --p-size: 70;
+    background-image: url('assets/landscapes/mount-fuji-fhd.jpg');
+    background-size: cover;
+    background-position: 50%;
+    z-index: -3;
+}

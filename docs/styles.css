@@ -1,0 +1,154 @@
+:root{
+    --nav-width: 300px;
+}
+body{
+    margin: 0;
+    background: #e0e0f5;
+    color:#18184e;
+    font-family: Helvetica,Arial,sans-serif;
+    scroll-behavior: smooth;
+}
+h1{ font-size: 2.5rem; }
+h2{ font-size: 2rem; }
+h3{ font-size: 1.5rem; }
+
+button {
+    background: whitesmoke;
+    color: #3737ae;
+    margin: 0.5em 0;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px #3737ae solid;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+button:hover {
+    background: #3737ae;
+    color: whitesmoke;
+    box-shadow: 0 0 6px #3737ae;
+}
+
+.bg1{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.content {
+    position: relative;
+    background:  #e0e0f5;
+    padding: 1px 20px;
+    padding-top: 100px;
+    padding-left: var(--nav-width);
+}
+
+section {
+    max-width: 42em;
+    margin-left: 20px;
+}
+/*hack to possition sticky element absolutely (to not take space)*/
+.nav_wrap{
+    position: sticky;
+    top: 0px;
+    width:0;
+    height:0;
+    z-index: 10;
+}
+nav {
+    box-sizing: border-box;
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    display: flex;
+    flex-flow: column;
+    height: 540px;
+    max-height: 75vh;
+    /* width minus margin */
+    width: calc(var(--nav-width) - 20px * 2);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px;
+    background: #6464b4f5;
+    color: whitesmoke;
+    border-radius: 10px;
+
+    font-size: 1.3rem;
+}
+nav a {
+    padding: 10px 0;
+    width: 100%;
+    text-decoration: none;
+    color: whitesmoke;
+}
+nav a:hover {
+    color: #111188;
+    transition: all ease-out 0.1s;
+}
+nav ul {
+    margin: 0;
+    width: 100%;
+}
+nav ul li {
+    width: 100%;
+    font-size: 1rem;
+}
+nav::-webkit-scrollbar {
+    display: none;
+}
+nav {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+
+.row {
+    display: flex;
+    flex-flow: row wrap;
+}
+@media (max-width: 900px) {
+    .nav_wrap {
+        width: 100%;
+    }
+    nav {
+        top: 0;
+        left:0;
+        width: 100%;
+        height: unset;
+        flex-flow: row nowrap;
+        border-radius: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    nav ul {
+        display: flex;
+        flex-flow: row nowrap;
+        margin: 0;
+        padding: 0;
+        margin-right: 20px;
+        list-style: none;
+    }
+    nav a {
+        margin: 0 10px;
+        white-space: nowrap;
+    }
+    #start {
+        margin-top: 100px;
+    }
+    :root {
+        --nav-width: 0px;
+    }
+}
+@media (max-width: 700px) {
+    .nav_wrap {
+        display: none;
+    }
+    .nav_wrap > nav {
+        display: none;
+    }
+    #start {
+        margin-top: initial;
+    }
+}

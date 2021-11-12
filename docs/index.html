@@ -4,9 +4,302 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Css parallax</title>
+    <link href="prism.css" rel="stylesheet">
+    <link href="../parallax.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <link href="title.css" rel="stylesheet">
+    <link href="steps.css" rel="stylesheet">
+    <link href="shapes.css" rel="stylesheet">
+    <link href="examples.css" rel="stylesheet">
+    <title>Parallax.css</title>
 </head>
 <body>
-    <p style="font-family: 'Courier New', monospace; font-size: 3rem; position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);" >Under construction</p>
+    <div class="bg1 prx_group">
+        <div class="shapes prx_group">
+            <div class="rectangle1" prx></div>
+            <div class="outline" prx></div>
+            <div class="rectangle2" prx></div>
+            <div class="circle1" prx>Fast & Efficient</div>
+            <div class="circle2" prx>Light-weight</div>
+            <div class="circle3" prx>Pure CSS</div>
+            <div class="circle4" prx>10kB</div>
+        </div>
+        <div class="steps prx_group">
+            <div class="back prx_fit" prx=5></div>
+            <div class="layer1 prx_fit" prx=4></div>
+            <div class="layer2 prx_fit" prx=3></div>
+            <div class="layer3 prx_fit" prx=2></div>
+            <div class="layer4 prx_fit" prx=1></div>
+        </div>
+        <div class="title prx_group">
+            <div class="letter" id="p" prx=-1>P</div>
+            <div class="letter" id="a1" prx=1>A</div>
+            <div class="letter" id="r" prx=-2>R</div>
+            <div class="letter" id="a2" prx=2>A</div>
+            <div class="letter" id="l1" prx=-1>L</div>
+            <div class="letter" id="l2" prx=1>L</div>
+            <div class="letter" id="a3" prx=3>A</div>
+            <div class="letter" id="x" prx=1>X</div>
+            <div class="letter" id="c" prx=-1>C</div>
+            <div class="letter" id="s1" prx=0>S</div>
+            <div class="letter" id="s2" prx=1>S</div>
+        </div>
+    </div>
+    <div class="nav_wrap">
+        <nav>
+            <a href="#start">Getting Started</a>
+            <a href="#tldr">TL;DR</a>
+            <a href="#container">Container</a>
+            <ul>
+                <a href="#axis"><li>axis</li></a>
+                <a href="#container_size"><li>size</li></a>
+                <a href="#container_align"><li>align</li></a>
+            </ul>
+            <a href="#item">Item</a>
+            <ul>
+                <a href="#prx"><li>prx</li></a>
+                <a href="#speed"><li>speed</li></a>
+                <a href="#prx_fit"><li>prx_fit</li></a>
+            </ul>
+            <a href="#group">Group and layers</a>
+            <a href="#advanced">Advanced</a>
+            <a href="#examples">Examples</a>
+            <a href="#limitations">Limitations and issues</a>
+        </nav>
+    </div>
+    <div class="content">
+        <section id="start">
+            <h1>Getting Started</h1>
+            <h2>Installation</h2>
+            <pre><code class="lang-shell">npm install parallax.css</code></pre>
+            or<br>
+            <a href="../parallax.css" download="parallax.css" target="_blank">
+                <button id="download_btn">Download</button>
+            </a>
+            <h2>Usage</h2>
+            <pre><code class="lang-html">&lt;link rel="stylesheet" href="node_modules/parallax.css/parallax.css"></code></pre>
+            or<br>
+            <pre><code class="lang-html">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/parallax.css"></code></pre>
+            <p>Make sure you import this library as first so it can be overwritten by your own styles!</p>
+            <p>See the repository <a href="https://github.com/Matyanson/parallax.css/blob/main/readme.md">readme</a> for more info.</p>
+        </section>
+        <section id="tldr">
+            <h1>TL;DR</h1>
+            <ul>
+                <li>Use the "prx" attribute on any element to activate the parallax effect</li>
+                <li>Control depth by assigning a value (-10 to 10; integer)</li>
+                <li>Or set value to `--p-depth` or `--p-speed` variable</li>
+            </ul>
+            <pre><code class="lang-html">&lt;body>
+    &lt;div prx >default parallax effect&lt;/div>
+    &lt;div prx=6 >depth set to 6&lt;/div>
+    &lt;div class="item1" prx >I am fast&lt;/div>
+&lt;/body></code></pre>
+            <pre><code class="lang-css">.item1{
+    --p-speed: 3; /*3x faster than scrolling*/
+}</code></pre>
+            <p>Use the "prx_group" class to wrap 1 or multiple parallax items.</p>
+            <pre><code class="lang-html">&lt;body>
+    &lt;div class="prx_group">
+        &lt;div prx >parallax item&lt;/div>
+    &lt;/div>
+&lt;/body></code></pre>
+            <p>Use the "prx_fit" class on item to fit in its size when scrolling.</p>
+            <h3 style="margin-bottom: 10px;">example:</h3>
+        </section>
+    </div>
+    <img class="prx_fit" prx style="--p-size: 30;" src="./assets/textures/tiles-shapes.jpg">
+    <!-- Start of documentation -->
+    <div class="content">
+        <section id="container">
+            <h1>Container</h1>
+            <p>The container defines a space where you can move elements by its z-axis (closer or further from the screen).</p>
+            <p>The container has a fixed size and the effect applyes only to the content inside when scrolling trough the container.</p>
+            <p>you make a container by styling an element with one of the classes bellow.</p>
+            <p>the body is a container by default!</p>
+            <h2 id="axis">Axis</h2>
+            <p>you can choose between 2 classes:</p>
+            <div class="row">
+                <div class="wrap">
+                    <h4>prx_container_y</h4>
+                    <div class="container_small prx_container_y">
+                        <div class="cube"></div>
+                        <div class="cube" prx=4></div>
+                        <div class="cube"></div>
+                        <div class="rectangle_x" prx=-7></div>
+                        <div class="cube"></div>
+                        <div class="cube"></div>
+                        <div class="space"></div>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <h4>prx_container_x</h4>
+                    <div class="container_small prx_container_x">
+                        <div class="cube"></div>
+                        <div class="cube" prx=4></div>
+                        <div class="cube"></div>
+                        <div class="rectangle_y" prx=-7></div>
+                        <div class="cube"></div>
+                        <div class="cube"></div>
+                        <div class="space"></div>
+                    </div>
+                </div>
+            </div>
+            <h2 id="container_size">Container size</h2>
+            <p>defines dimension of the scrollable side of the container.</p>
+            <p>accepts any unit except percentage.</p>
+            <h3>Syntax</h3>
+            <pre><code class="lang-css">.my_container {
+    /* value: &lt;dimension> (not %)*/
+    --p-container-size: 100vh;
+}</code></pre>
+            <h2 id="container_align">Align</h2>
+            <p>controls on which side are items aligned when traveling trough perspective.</p>
+            <h3>Syntax</h3>
+            <pre><code class="lang-css">.my_container {
+    /* value: &lt;number> | 0 to 100 | right - left, top - bottom */
+    --p-align: 50;
+}</code></pre>
+            <div class="wrap">
+                <h4>Align: <span id="align_display">0</span></h4>
+                <input id="align_range" type="range" value="0" min="0" max="100">
+                <div id="align_container" class="container_small prx_container_y">
+                    <div prx=2 class="cube" style="align-self: flex-start;">left</div>
+                    <div prx=2 class="cube" style="align-self: center;">center</div>
+                    <div prx=2 class="cube" style="align-self: flex-end;">right</div>
+                    <div class="cube" style="align-self: flex-start;">left</div>
+                    <div class="cube" style="align-self: center;">center</div>
+                    <div class="cube" style="align-self: flex-end;">right</div>
+                </div>
+            </div>
+        </section>
+        <section id="item">
+            <h1>Item</h1>
+            <p>An Item is considered any element that is a child of a container and is translated in perspective.</p>
+            <h2 id="prx">prx (attribute)</h2>
+            <p>
+                To acctivate the parallax effect you simply need to add the "prx" attribute on any 1st level child element of container.
+                To control the depth assign a number to the attribute.
+            </p>
+            <h3>Syntax</h3>
+            <pre><code class="lang-html">&lt;div prx>default depth&lt;/div>
+&lt;!-- value: integer | -10 to 10 -->
+&lt;div prx=4>your optimal depth&lt;/div>
+</code></pre>
+        <h2 id="speed">Set depth in css</h2>
+        <p>Another way to set the depth is to use `--p-depth` or `--p-speed` variable in css.</p>
+        <h3>Syntax</h3>
+        <pre><code class="lang-html">&lt;div class="item1" prx >I am slow&lt;/div>
+&lt;div class="item2" prx >I am fast&lt;/div>
+&lt;div class="item3" prx >precise depth&lt;/div>
+</code></pre>
+            <pre><code class="lang-css">.item1{
+    /* value: &lt;number> | 0 - "infinity" */
+    --p-speed: 0.5; /* 1/2 is valid as well */
+}
+.item2{
+    --p-speed: 3; /* 3x faster than scrolling */
+}
+.item3{
+    /* value: &lt;number> | -5 to "infinity" */
+    --p-depth: 6;
+}</code></pre>
+            <h3>example:</h3>
+        </section>
+    </div>
+    <div class="row prx_group" style="justify-content: center; margin-top: 200px;">
+        <div class="cube" prx style="--p-speed: 0.5;z-index: 5;">speed: 0.5</div>
+        <div class="cube" prx style="--p-speed: 0.8;z-index: 5;">speed: 0.8</div>
+        <div class="cube" prx style="--p-speed: 1;z-index: 5;">speed: 1</div>
+        <div class="cube" prx style="--p-speed: 2;z-index: 5;">speed: 2</div>
+        <div class="cube" prx style="--p-speed: 2.5;z-index: 5;">speed: 2.5</div>
+    </div>
+    <div class="content">
+        <section>
+            <h2 id="prx_fit">prx_fit (class)</h2>
+            <p>Use the prx_fit class to fit any item in its size!<br>
+            This class is especially useful when working with background/layers.</p>
+            <p>prx_fit item has its default size set to 100. The value represents size percentage relative to Container (allways, even if the item is inside a wrap).<br>
+            You can change the size by using the `--p-size` variable.</p>
+            <h3>Syntax</h3>
+            <pre><code class="lang-html">&lt;body>
+    &lt;div class="bg1 prx_fit" prx >my awesome background!&lt;/div>
+&lt;/body></code></pre>
+            <pre><code class="lang-css">.bg1{
+    /* value: &lt;number> | 0 - "infinity" */
+    --p-size: 50;
+}</code></pre>
+            <p>The class uses the "left" property and "width"/"height" property to align the item, so it is recomended not to use these properties unless you want to overwrite the behaviour.</p>
+            <h3>Example:</h3>
+            <p>On the left is basic parallax item and on the right is the prx_fit class enabled.</p>
+        </section>
+    </div>
+    <div class="row prx_group" style="position: relative;z-index: -1;flex-wrap: nowrap;">
+        <div class="prx_group" style="width: 50%;">
+            <img prx=3 style="height: 30vh;" src="assets/textures/brick-wall.jpg">
+        </div>
+        <div class="prx_group" style="width: 50%;">
+            <img class="prx_fit" prx=3 style="--p-size: 30;left:50%;" src="assets/textures/brick-wall.jpg">
+        </div>
+    </div>
+    <div class="content">
+        <section>
+            <h3>But how to align?</h3>
+            <p>You can choose to either use the img tag or div tag with background-image set.<br>
+            But background-image has one advantage.<br>
+            While img is automatically centered, with background-image you can set the "background-position" to align the image when cropped.</p>
+            <pre><code class="lang-css">.bg1{
+    --p-size: 50;
+    background-image: url("my_img.png");
+    background-size: cover;
+    background-position: 15%;
+}</code></pre>
+            <h3>Example:</h3>
+            <h4>position: <span id="align_bg_display">50</span>%</h4>
+            <input id="align_bg_range" type="range" value="50" min="0" max="100">
+        </section>
+    </div>
+    <div id="bg_align" class="prx_fit"
+    prx=3
+    ></div>
+    <div class="content">
+        <section id="group">
+            <h1 id="prx_group">prx_group</h1>
+            <p>Because of how css is right now ... the parallax effect works only on 1st level child elements of a container (directly under the container).<br>
+                The prx_group class allows for more deeply nested items and more importantly grouping items together.<br>
+                Be carefull tho, because every parent and grandparent of an item has to be either prx_group or the container.
+            </p>
+            <h3>Syntax</h3>
+            <pre><code class="lang-html">&lt;!-- body or any parallax container -->
+&lt;body>
+    &lt;div class="prx_group">
+        &lt;div prx >parallax item1&lt;/div>
+        &lt;div prx >parallax item2&lt;/div>
+    &lt;/div>
+    &lt!-- deeply nested -->
+    &lt;div class="prx_group">
+        &lt;div prx >parallax item1&lt;/div>
+        &lt;div class="prx_group">
+            &lt;div prx >parallax item2&lt;/div>
+            &lt;div prx >parallax item3&lt;/div>
+        &lt;/div>
+    &lt;/div>
+&lt;/body></code></pre>
+        </section>
+        <section id="advanced">
+            <h1>Advanced</h1>
+            <p>todo;</p>
+        </section>
+        <section id="examples">
+            <h1>Examples</h1>
+            <p>todo;</p>
+        </section>
+        <section id="limitations">
+            <h1>Limitations and issues</h1>
+            <p>todo;</p>
+        </section>
+    </div>
+    <script src="prism.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
