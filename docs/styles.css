@@ -72,9 +72,10 @@ nav {
     overflow-y: auto;
     overflow-x: hidden;
     padding: 20px;
-    background: #6464b4f5;
-    color: whitesmoke;
+    background: #c6c6ece3;
+    color: #111188;
     border-radius: 10px;
+    border: 5px solid #b1b1e7e3;
 
     font-size: 1.3rem;
 }
@@ -82,10 +83,11 @@ nav a {
     padding: 10px 0;
     width: 100%;
     text-decoration: none;
-    color: whitesmoke;
+    color: #111188;
 }
 nav a:hover {
-    color: #111188;
+    color: #18184e;
+    text-decoration: underline;
     transition: all ease-out 0.1s;
 }
 nav ul {
