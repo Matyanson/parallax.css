@@ -1,5 +1,6 @@
 :root{
     --nav-width: 300px;
+    --section-width: 42em;
 }
 body{
     margin: 0;
@@ -44,11 +45,14 @@ button:hover {
     padding: 1px 20px;
     padding-top: 100px;
     padding-left: var(--nav-width);
+    padding-right: calc((100% - (var(--nav-width) + var(--section-width))) / 2);
 }
 
 section {
     max-width: 42em;
-    margin-left: 20px;
+    max-width: var(--section-width);
+    margin: 0 auto;
+    padding: 0 20px;
 }
 /*hack to possition sticky element absolutely (to not take space)*/
 .nav_wrap{
@@ -111,6 +115,9 @@ scrollbar-width: none;  /* Firefox */
     flex-flow: row wrap;
 }
 @media (max-width: 900px) {
+    .content {
+        padding-right: 0;
+    }
     .nav_wrap {
         width: 100%;
     }
