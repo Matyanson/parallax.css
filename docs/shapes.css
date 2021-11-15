@@ -8,9 +8,6 @@
     0% {
         opacity: 0;
     }
-    100% {
-        opacity: 1;
-    }
 }
 .shapes{
     position: absolute;
@@ -57,16 +54,14 @@
     border-radius: 20px;
     animation: drop-down 1.5s cubic-bezier(0.32, 0.04, 0.29, 1.17), transparent 1.5s ease;
 }
-.circle1{
+#circle1{
     bottom: 5%;
     left: 50%;
     width: 15vw;
     height: 15vw;
     --p-depth: -2.3;
-    background: #7777d420;
-    border-radius: 50%;
 }
-.circle2{
+#circle2{
     bottom: 30%;
     left: 70%;
     width: 13vw;
@@ -75,7 +70,7 @@
     background: #7777d430;
     border-radius: 50%;
 }
-.circle3{
+#circle3{
     bottom: 30%;
     left: 30%;
     width: 10vw;
@@ -84,7 +79,7 @@
     background: #7777d430;
     border-radius: 50%;
 }
-.circle4{
+#circle4{
     bottom: 35%;
     left: 20%;
     width: 7vw;
@@ -93,7 +88,7 @@
     background: #7777d430;
     border-radius: 50%;
 }
-.circle1, .circle2, .circle3, .circle4 {
+.bubble {
     animation: transparent 1.5s ease;
 
     text-align: center;
@@ -101,10 +96,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    background: #7777d420;
+    border-radius: 50%;
 }
 
 @media (min-width: 1085px) {
-    .circle1, .circle2, .circle3, .circle4 {
+    .bubble {
         font-size: 2rem;
     }
 }
