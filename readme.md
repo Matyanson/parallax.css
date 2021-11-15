@@ -61,7 +61,7 @@ You can find the Parallax.css documentation on [github-pages](https://matyanson.
 [npm-version-image]: https://img.shields.io/npm/v/parallax.css.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/parallax.css
 [license-image]: https://img.shields.io/npm/l/parallax.css.svg?style=flat-square
-[license-url]: LICENSE.md
+[license-url]: license.md
 [jsDelivr-image]: https://data.jsdelivr.com/v1/package/npm/parallax.css/badge
 [jsDelivr-url]: https://www.jsdelivr.com/package/npm/parallax.css
 [npm-downloads-image]: https://img.shields.io/npm/dt/parallax.css?style=flat-square
