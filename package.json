@@ -4,7 +4,8 @@
   "description": "Pure css library for the parallax effect",
   "main": "parallax.css",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "css-minify -f parallax.css -o ./ && npm publish"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,6 @@
   },
   "homepage": "https://matyanson.github.io/parallax.css",
   "files": [
-    "parallax.css"
+    "parallax.min.css"
   ]
 }
