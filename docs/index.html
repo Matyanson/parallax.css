@@ -59,6 +59,7 @@
             <ul>
                 <a href="#prx"><li>prx</li></a>
                 <a href="#speed"><li>speed</li></a>
+                <a href="#transform"><li>transform</li></a>
                 <a href="#prx_fit"><li>prx_fit</li></a>
             </ul>
             <a href="#group">Group and layers</a>
@@ -175,7 +176,7 @@
         </section>
         <section id="item">
             <h1>Item</h1>
-            <p>An Item is considered any element that is a child of a container and is translated in perspective.</p>
+            <p>An Item is considered any descendant of a container that is translated in perspective.</p>
             <h2 id="prx">prx (attribute)</h2>
             <p>
                 To acctivate the parallax effect you simply need to add the "prx" attribute on any 1st level child element of container.
@@ -216,6 +217,17 @@
     </div>
     <div class="content">
         <section>
+            <h2 id="transform">Transform functions</h2>
+            <p>To adjust the scale of an item (zoom) use the `--p-scale` variable in css.<br>
+            For any other transformation use the `--p-transform` var instead.</p>
+            <p>Only the translateZ() and scale() functions are used by the library (which can be overwritten).</p>
+            <h3>Syntax</h3>
+            <pre><code class="lang-css">.item1{
+    /* value: &lt;number> | 0 - "infinity" */
+    --p-scale: 0.5;
+    /* value: &lt;transform-function> | one or more */
+    --p-transform: rotate(90deg);
+}</code></pre>
             <h2 id="prx_fit">prx_fit (class)</h2>
             <p>Use the prx_fit class to fit any item in its size!<br>
             This class is especially useful when working with background/layers.</p>
@@ -267,7 +279,7 @@
             <h1 id="prx_group">prx_group</h1>
             <p>Because of how css is right now ... the parallax effect works only on 1st level child elements of a container (directly under the container).<br>
                 The prx_group class allows for more deeply nested items and more importantly grouping items together.<br>
-                Be carefull tho, because every parent and grandparent of an item has to be either prx_group or the container.
+                Be carefull tho, because every ancestor of an item has to be either prx_group or the container.
             </p>
             <h3>Syntax</h3>
             <pre><code class="lang-html">&lt;!-- body or any parallax container -->
@@ -287,6 +299,7 @@
 &lt;/body></code></pre>
         </section>
         <section id="advanced">
+            <!-- scrollbar-width, perspective -->
             <h1>Advanced</h1>
             <p>todo;</p>
         </section>
@@ -295,6 +308,7 @@
             <p>todo;</p>
         </section>
         <section id="limitations">
+            <!-- fixed items, negative perspective prx_fit in group -->
             <h1>Limitations and issues</h1>
             <p>todo;</p>
         </section>
