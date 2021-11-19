@@ -12,8 +12,11 @@
   },
   "keywords": [
     "parallax",
+    "perspective",
+    "3d",
     "css",
     "pure",
+    "vanilla",
     "lightweight",
     "simple"
   ],
@@ -22,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/Matyanson/parallax.css/issues"
   },
-  "homepage": "https://github.com/Matyanson/parallax.css#readme",
+  "homepage": "https://matyanson.github.io/parallax.css",
   "files": [
     "parallax.css"
   ]
