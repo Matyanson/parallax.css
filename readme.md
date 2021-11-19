@@ -8,6 +8,10 @@
 [![npm][npm-downloads-image]][npm-url]
 [![GitHub Repo stars][github-stars-image]][github-url]
 
+<br>
+
+## [Official documentation page](https://matyanson.github.io/parallax.css)
+<br>
 
 ## Installation
 
@@ -55,7 +59,7 @@ or
 
 ## Getting started
 
-You can find the Parallax.css documentation on [github-pages](https://matyanson.github.io/parallax.css/).
+You can find the Parallax.css documentation on [github-pages](https://matyanson.github.io/parallax.css).
 
 <!--- links for badges -->
 [npm-version-image]: https://img.shields.io/npm/v/parallax.css.svg?style=flat-square
