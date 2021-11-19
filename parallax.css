@@ -22,6 +22,13 @@ body,
     perspective: calc(var(--p-perspective, 10) * 1px);
     --p-scrollbar-width: 17px;
 }
+/* set prx_group automatically */
+body *,
+.prx_container *,
+.prx_container_x *,
+.prx_container_y * {
+    transform-style: preserve-3d;
+}
 /*  account for scrollbar width: 17px
     https://codepen.io/sambible/post/browser-scrollbar-widths    */
 body,
@@ -42,9 +49,6 @@ body,
 }
 
 /*---parallax items---*/
-.prx_group {
-    transform-style: preserve-3d;
-}
 .prx_fit {
     position: relative;
     display: block;
