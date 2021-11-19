@@ -62,7 +62,6 @@
                 <a href="#transform"><li>transform</li></a>
                 <a href="#prx_fit"><li>prx_fit</li></a>
             </ul>
-            <a href="#group">Group and layers</a>
             <a href="#advanced">Advanced</a>
             <a href="#examples">Examples</a>
             <a href="#limitations">Limitations and issues</a>
@@ -99,12 +98,6 @@
             <pre><code class="lang-css">.item1{
     --p-speed: 3; /*3x faster than scrolling*/
 }</code></pre>
-            <p>Use the "prx_group" class to wrap 1 or multiple parallax items.</p>
-            <pre><code class="lang-html">&lt;body>
-    &lt;div class="prx_group">
-        &lt;div prx >parallax item&lt;/div>
-    &lt;/div>
-&lt;/body></code></pre>
             <p>Use the "prx_fit" class on item to fit in its size when scrolling.</p>
             <h3 style="margin-bottom: 10px;">example:</h3>
         </section>
@@ -275,29 +268,6 @@
     prx=3
     ></div>
     <div class="content">
-        <section id="group">
-            <h1 id="prx_group">prx_group</h1>
-            <p>Because of how css is right now ... the parallax effect works only on 1st level child elements of a container (directly under the container).<br>
-                The prx_group class allows for more deeply nested items and more importantly grouping items together.<br>
-                Be carefull tho, because every ancestor of an item has to be either prx_group or the container.
-            </p>
-            <h3>Syntax</h3>
-            <pre><code class="lang-html">&lt;!-- body or any parallax container -->
-&lt;body>
-    &lt;div class="prx_group">
-        &lt;div prx >parallax item1&lt;/div>
-        &lt;div prx >parallax item2&lt;/div>
-    &lt;/div>
-    &lt!-- deeply nested -->
-    &lt;div class="prx_group">
-        &lt;div prx >parallax item1&lt;/div>
-        &lt;div class="prx_group">
-            &lt;div prx >parallax item2&lt;/div>
-            &lt;div prx >parallax item3&lt;/div>
-        &lt;/div>
-    &lt;/div>
-&lt;/body></code></pre>
-        </section>
         <section id="advanced">
             <!-- scrollbar-width, perspective -->
             <h1>Advanced</h1>
