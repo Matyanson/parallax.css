@@ -28,6 +28,7 @@
   },
   "homepage": "https://matyanson.github.io/parallax.css",
   "files": [
+    "parallax.css",
     "parallax.min.css"
   ]
 }
