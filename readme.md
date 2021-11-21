@@ -3,7 +3,8 @@
 > pure css parallax in one file
 
 [![npm][npm-version-image]][npm-url]
-![license][license-image]
+[![license][license-image]][license-url]
+[![npm][npm-size-image]][npm-url]
 [![jsDelivr][jsDelivr-image]][jsDelivr-url]
 [![npm][npm-downloads-image]][npm-url]
 [![GitHub Repo stars][github-stars-image]][github-url]
@@ -34,7 +35,8 @@ yarn add parallax.css
 #### Download
 
 [source](https://raw.githubusercontent.com/Matyanson/parallax.css/main/parallax.css) |
-[jsdelivr](https://cdn.jsdelivr.net/npm/parallax.css/parallax.css)
+[minified](https://raw.githubusercontent.com/Matyanson/parallax.css/main/parallax.min.css) |
+[jsdelivr](https://cdn.jsdelivr.net/npm/parallax.css)
 
 </br>
 
@@ -66,6 +68,7 @@ You can find the Parallax.css documentation on [github-pages](https://matyanson.
 [npm-url]: https://www.npmjs.com/package/parallax.css
 [license-image]: https://img.shields.io/npm/l/parallax.css.svg?style=flat-square
 [license-url]: license.md
+[npm-size-image]: https://img.shields.io/bundlephobia/min/parallax.css?style=flat-square
 [jsDelivr-image]: https://data.jsdelivr.com/v1/package/npm/parallax.css/badge
 [jsDelivr-url]: https://www.jsdelivr.com/package/npm/parallax.css
 [npm-downloads-image]: https://img.shields.io/npm/dt/parallax.css?style=flat-square
