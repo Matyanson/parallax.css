@@ -8,11 +8,11 @@ html {
 /*---global vars---*/
 :root {
     --p-align: 50;
-    --p-perspective: 5;
+    --p-perspective: 1000;
     --p-speed: 0.5;
-    --p-depth: calc(var(--p-perspective) * (1 / var(--p-speed) - 1));
     --p-scale: 1;
     --p-transform: ;
+    --p-scrollbar-width: 17px;
 }
 /*---parallax container---*/
 body,
@@ -21,7 +21,6 @@ body,
 .prx_container_y {
     transform-style: flat;
     perspective: calc(var(--p-perspective, 10) * 1px);
-    --p-scrollbar-width: 17px;
 }
 /* set prx_group automatically */
 body *,
@@ -30,8 +29,6 @@ body *,
 .prx_container_y * {
     transform-style: preserve-3d;
 }
-/*  account for scrollbar width: 17px
-    https://codepen.io/sambible/post/browser-scrollbar-widths    */
 body,
 .prx_container_y {
     perspective-origin: calc(100% * var(--p-align) / 100) 50%;    
@@ -102,7 +99,10 @@ body [prx],
     var(--p-origin);
 }
 [prx] {
-    --p-scale-adjust: calc(1 + var(--p-depth, 1) / var(--p-perspective));
+    --p-perspective-ratio: calc(5 / var(--p-perspective));  /*5 is previous version default perspective val.*/
+    --p-depth: calc(var(--p-perspective-ratio) * var(--p-perspective) * (1 / (var(--p-speed, 0.5)) - 1));
+    --p-depth-calc: calc((1 / var(--p-perspective-ratio)) * var(--p-depth));
+    --p-scale-adjust: calc(1 + var(--p-depth-calc, 1) / var(--p-perspective));
     /*1 + (translateZ * -1) / perspective*/
     --p-scale-complete: calc(var(--p-scale-adjust) * var(--p-scale-to-fit, 1) * var(--p-scale, 1));
     --origin-shift: calc(
@@ -111,7 +111,7 @@ body [prx],
         (2*(var(--p-scale-complete) - 1))
     );
     /*  a: scale-adjust; b: scale
-        a*(b-1) / (2*(đab-1))    */
+        a*(b-1) / (2*(ab-1))    */
     --p-origin: calc(
         1% * var(--p-align) + 
         (50 - var(--p-align)) / 50 * var(--origin-shift)
@@ -119,10 +119,9 @@ body [prx],
     /*  y: origin-shift; z: align
         z + ((50-z)/50) * y    */
     transform:
-    translateZ(calc(var(--p-depth, 1) * -1px))
+    translateZ(calc(var(--p-depth-calc, 1) * -1px))
     scale(var(--p-scale-complete))
     var(--p-transform);
-    --p-depth: calc(var(--p-perspective) * (1 / (var(--p-speed, 0.5)) - 1));
 }
 [prx="0"] {
     --p-depth: 0;
