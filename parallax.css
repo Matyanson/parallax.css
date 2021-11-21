@@ -19,6 +19,7 @@ body,
 .prx_container,
 .prx_container_x,
 .prx_container_y {
+    transform-style: flat;
     perspective: calc(var(--p-perspective, 10) * 1px);
     --p-scrollbar-width: 17px;
 }
