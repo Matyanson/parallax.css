@@ -66,6 +66,10 @@
             <a href="#advanced">Advanced</a>
             <a href="#examples">Examples</a>
             <a href="#limitations">Limitations and issues</a>
+            <ul>
+                <a href="#fixed_elements"><li>fixed elements</li></a>
+                <a href="#negative_depth_bg"><li>negative depth bg</li></a>
+            </ul>
         </nav>
     </div>
     <div class="content">
@@ -282,7 +286,35 @@
         <section id="limitations">
             <!-- fixed items, negative perspective prx_fit in group -->
             <h1>Limitations and issues</h1>
-            <p>todo;</p>
+            <p>This library uses css only to achieve these effects.<br>
+            That is why it is limited to how browsers calculate to display the content according to the css and what css has to offer.</p>
+            <p>Here are some of the biggest limitations and issues:</p>
+            <h2 id="fixed_elements">Fixed elements</h2>
+            <p>
+                An element with container class has <code>perspective</code> property set in order for the effect to work (body is a container by default).
+            </p>
+            <p>
+                According to the <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning#fixed_positioning">MDN</a> and <a target="_blank" href="https://www.w3.org/wiki/CSS_absolute_and_fixed_positioning?#Fixed_positioning">W3C</a> docs "an element with position:fixed are always relative to the initial containing block".<br> 
+                The initial containing block is usually the &lt;html> (visible portion of viewport).<br>
+                Surprisingly, an exception is made when one of its ancestors has a <code>transform</code>, <code>perspective</code>, or <code>filter</code> property set to something other than none, in which case that ancestor behaves as the containing block. <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/position#values">more info</a>.
+            </p>
+            <h3>Solution</h3>
+            <p>In order to solve this issue you simply need to wrap all content in div and have everything scroll in the div.</p>
+            <p>set fixed height and overflow-y auto.</p>
+            <pre><code class="lang-html">&lt;div class="main_container">
+    &lt;!-- everything goes here-->
+&lt;/div></code></pre>
+            <pre><code class="lang-css">.main_container{
+    height: 100vh;
+    overflow-y: auto;
+}</code></pre>
+            <h2 id="negative_depth_bg">Negative depth background</h2>
+            <p>When Item has negative depth or speed set to > 1 it means it is closer to you than (infront of) the usual content.
+                Normally It would be obstructing the content but thanks to its default z-index(-1) it isn't.</p>
+            <p>
+                This only works when directly under the prx Container. Because for more deeply nested items <code>transform-style: preserve-3d</code> is required for the effect to work!
+                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style">More info</a> about <code>transform-style</code> property.
+            </p>
         </section>
     </div>
     <script src="prism.js"></script>
