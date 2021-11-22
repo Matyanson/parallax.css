@@ -89,7 +89,7 @@
             <ul>
                 <li>Use the "prx" attribute on any element to activate the parallax effect</li>
                 <li>Control depth by assigning a value (-10 to 10; integer)</li>
-                <li>Or set value to `--p-depth` or `--p-speed` variable</li>
+                <li>Or set value to <code>--p-depth</code> or <code>--p-speed</code> variable</li>
             </ul>
             <pre><code class="lang-html">&lt;body>
     &lt;div prx >default parallax effect&lt;/div>
@@ -99,6 +99,7 @@
             <pre><code class="lang-css">.item1{
     --p-speed: 3; /*3x faster than scrolling*/
 }</code></pre>
+<div class="warning">Fixed elements don't work that way, here is a quick fix: <a href="#fixed_elements">fixed elements</a></div>
             <p>Use the "prx_fit" class on item to fit in its size when scrolling.</p>
             <h3 style="margin-bottom: 10px;">example:</h3>
         </section>
@@ -182,7 +183,7 @@
 &lt;div prx=4>your optimal depth&lt;/div>
 </code></pre>
         <h2 id="speed">Set depth in css</h2>
-        <p>Another way to set the depth is to use `--p-depth` or `--p-speed` variable in css.</p>
+        <p>Another way to set the depth is to use <code>--p-depth</code> or <code>--p-speed</code> variable in css.</p>
         <h3>Syntax</h3>
         <pre><code class="lang-html">&lt;div class="item1" prx >I am slow&lt;/div>
 &lt;div class="item2" prx >I am fast&lt;/div>
@@ -212,8 +213,8 @@
     <div class="content">
         <section>
             <h2 id="transform">Transform functions</h2>
-            <p>To adjust the scale of an item (zoom) use the `--p-scale` variable in css.<br>
-            For any other transformation use the `--p-transform` var instead.</p>
+            <p>To adjust the scale of an item (zoom) use the <code>--p-scale</code> variable in css.<br>
+            For any other transformation use the <code>--p-transform</code> var instead.</p>
             <p>Only the translateZ() and scale() functions are used by the library (which can be overwritten).</p>
             <h3>Syntax</h3>
             <pre><code class="lang-css">.item1{
@@ -226,7 +227,7 @@
             <p>Use the prx_fit class to fit any item in its size!<br>
             This class is especially useful when working with background/layers.</p>
             <p>prx_fit item has its default size set to 100. The value represents size percentage relative to Container (allways, even if the item is inside a wrap).<br>
-            You can change the size by using the `--p-size` variable.</p>
+            You can change the size by using the <code>--p-size</code> variable.</p>
             <h3>Syntax</h3>
             <pre><code class="lang-html">&lt;body>
     &lt;div class="bg1 prx_fit" prx >my awesome background!&lt;/div>

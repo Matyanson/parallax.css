@@ -7,6 +7,7 @@ body{
     background: #e0e0f5;
     color:#18184e;
     font-family: Helvetica,Arial,sans-serif;
+    font-size: 1.1rem;
     scroll-behavior: smooth;
 }
 h1{ font-size: 2.5rem; }
@@ -69,7 +70,6 @@ nav {
     left: 20px;
     display: flex;
     flex-flow: column;
-    height: 540px;
     max-height: 75vh;
     /* width minus margin */
     width: calc(var(--nav-width) - 20px * 2);
@@ -108,6 +108,17 @@ nav::-webkit-scrollbar {
 nav {
 -ms-overflow-style: none;  /* IE and Edge */
 scrollbar-width: none;  /* Firefox */
+}
+.warning{
+    padding: 10px;
+    margin: 20px 0;
+    background: #fdfd96;
+    border-radius: 10px;
+    border: 5px solid #e4e46ee3;
+}
+
+code {
+    background: #dfd2d2;
 }
 
 .row {
