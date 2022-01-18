@@ -291,7 +291,7 @@
             <p>Here are some of the biggest limitations and issues:</p>
             <h2 id="fixed_elements">Fixed elements</h2>
             <p>
-                An element with container class has <code>perspective</code> property set in order for the effect to work (body is a container by default).
+                An element with the <code>prx_container</code> class has <code>perspective</code> property set in order for the effect to work (body is a container by default).
             </p>
             <p>
                 According to the <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning#fixed_positioning">MDN</a> and <a target="_blank" href="https://www.w3.org/wiki/CSS_absolute_and_fixed_positioning?#Fixed_positioning">W3C</a> docs "an element with position:fixed are always relative to the initial containing block".<br> 
@@ -299,14 +299,26 @@
                 Surprisingly, an exception is made when one of its ancestors has a <code>transform</code>, <code>perspective</code>, or <code>filter</code> property set to something other than none, in which case that ancestor behaves as the containing block. <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/position#values">more info</a>.
             </p>
             <h3>Solution</h3>
-            <p>In order to solve this issue you simply need to wrap all content in div and have everything scroll in the div.</p>
-            <p>set fixed height and overflow-y auto.</p>
-            <pre><code class="lang-html">&lt;div class="main_container">
-    &lt;!-- everything goes here-->
+            <p>In order to solve this issue you simply need to put every fixed element outside of the <code>prx_container</code>.</p>
+            <p>Here is an example:</p>
+            <pre><code class="lang-html">&lt;body>
+    &lt;div class="main prx_container_y">
+        &lt;!-- scrollable content -->
+    &lt;/div>
+    &lt;div class="fixed_element">&lt;/div>
+&lt;/body></code></pre>
+            <h3>Solution2</h3>
+            Other more sketchy way to solve this is to create a container with extreme parallax depth (barely moving) and put all fixed elements there.
+            Here is how:
+            <pre><code class="lang-html">&lt;div class="main prx_container_y">
+    &lt;!-- scrollable content -->
+    &lt;div class="fixed_container prx_fit" prx>
+        &lt;div class="fixed_element">&lt;/div>
+    &lt;/div>
 &lt;/div></code></pre>
-            <pre><code class="lang-css">.main_container{
-    height: 100vh;
-    overflow-y: auto;
+            <pre><code class="lang-css">.fixed_container {
+    position: absolute;
+    --p-depth: 1000000;
 }</code></pre>
             <h2 id="negative_depth_bg">Negative depth background</h2>
             <p>When Item has negative depth or speed set to > 1 it means it is closer to you than (infront of) the usual content.
